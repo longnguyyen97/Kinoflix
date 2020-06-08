@@ -1,8 +1,5 @@
 <?php
-    if(isset($_POST["submitButton"]))
-    {
-        echo "Form was submitted";
-    }
+require_once("includes/processForm/loginProcess.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +20,8 @@
                 <span>to continue to Kinoflix</span>
             </div>
             <form method="POST">
-
-                <input type="text" name="username" placeholder="Username" required>
+                <?php echo $account->getError(Constants::$loginFailed);?>
+                <input type="text" name="username" placeholder="Username" value= "<?php getInputValue("username"); ?>" required>
 
                 <input type="password" name="password" placeholder="Password" required>
                 
