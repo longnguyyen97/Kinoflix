@@ -99,7 +99,7 @@
         {
             if(in_array($error, $this->errorArray)) //check if $error is in the $errorArray
             {
-                return "<span> class='errorMessage'>$error</span>";
+                return "<span class='errorMessage'>$error</span>";
             }
         }
     }
