@@ -18,8 +18,16 @@ require_once("includes/classes/Account.php");
             $_SESSION["userLoggedIn"] = $username;
             header("Location: index.php");
         }
-
     }
+
+    function getInputValue($name)
+    {
+        if(isset($_POST[$name]))
+        {
+            echo $_POST[$name];
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +49,7 @@ require_once("includes/classes/Account.php");
             </div>
             <form method="POST">
                 <?php echo $account->getError(Constants::$loginFailed);?>
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username" value= "<?php getInputValue("username"); ?>" required>
 
                 <input type="password" name="password" placeholder="Password" required>
                 
