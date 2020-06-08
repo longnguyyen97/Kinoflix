@@ -1,7 +1,24 @@
 <?php
+    require_once("includes/classes/FormSanitizer.php");
+    require_once("includes/classes/Constants.php");
+    require_once("includes/config.php");
+    require_once("includes/classes/Account.php");
+
+    $account = new Account($conn);
+
     if(isset($_POST["submitButton"]))
     {
-        echo "Form was submitted";
+        $userName = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+        $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
+
+        $success = $account->login($userName, $password);
+        // if the insertion is success, register will hit the if block below
+        if($success)
+        {
+            // store session
+            header("Location: index.php");
+        }
+
     }
 ?>
 <!DOCTYPE html>
@@ -23,7 +40,7 @@
                 <span>to continue to Kinoflix</span>
             </div>
             <form method="POST">
-
+                <?php echo $account->getError(Constants::$loginFailed);?>
                 <input type="text" name="username" placeholder="Username" required>
 
                 <input type="password" name="password" placeholder="Password" required>

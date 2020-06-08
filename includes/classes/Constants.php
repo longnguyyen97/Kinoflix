@@ -11,5 +11,6 @@
         public static $emailTaken ="Email is already in used";
         public static $passwordsDontMatch ="Your passwords don't match"; 
         public static $passwordLength ="Your password needs to be longer than 6 character";
+        public static $loginFailed = "Your user or password is incorrect";
     }
 ?>
