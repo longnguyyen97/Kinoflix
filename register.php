@@ -17,7 +17,14 @@
         $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
         $password2 = FormSanitizer::sanitizeFormPassword($_POST["password"]);
 
-        $account->register($firstName, $lastName, $userName, $email, $email2, $password, $password2);
+        // if the input is successful, register will try to insert user details
+        $success = $account->register($firstName, $lastName, $userName, $email, $email2, $password, $password2);
+        // if the insertion is success, register will hit the if block below
+        if($success)
+        {
+            // store session
+            header("Location: index.php");
+        }
     }
 ?>
 <!DOCTYPE html>
