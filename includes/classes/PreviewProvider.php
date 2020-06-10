@@ -4,7 +4,7 @@ class PreviewProvider
     private $conn, $username;
     public function __construct($conn, $username)
     {
-        $this->con= $con;
+        $this->con= $conn;
         $this->username= $username;
     }
     public function createPreviewVideo()
