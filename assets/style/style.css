@@ -1,7 +1,7 @@
 html,
 * {
     font-family: Montserrat;
-    src: url('E:\\WORK\\Kinoflix\\Kinoflix\\assets\\font\Montserrat')  format('truetype');
+    src: url('E://WORK//Kinoflix//Kinoflix//assets//font//Montserrat')  format('truetype');
     color: #333;
     box-sizing: border-box;
 }
@@ -10,6 +10,25 @@ body {
     padding: 0;
     margin: 0;
 }
+
+h3 {
+    color: #e5e5e5;
+}
+
+a h3:hover {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    min-width: 1050px;
+    min-height: 100%;
+    background-color: #141414;
+}
+
 .signInContainer{
     background-color: #efefee;
     height: 100vh;
@@ -100,6 +119,19 @@ body {
     position: relative;
     display: flex;
 }
+
+.previewContainer.small {
+    width: 230px;
+    height: 129px;
+    margin-right: 4px;
+    display: inline-flex;
+}
+
+.previewContainer .small img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
 .previewOverlay{
     width: 100%;
     height: 100%;
@@ -142,4 +174,16 @@ button i {
 .mainDetails button:hover {
     background-color: #e6e6e6;
     color: #000;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.entities {
+    overflow-x: auto;
+    overflow-y:hidden;
+    white-space: nowrap;
 }

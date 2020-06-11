@@ -39,17 +39,25 @@ class PreviewProvider
                     </div>
                 </div/
             </div>";
+    }
+    
+    public function createEntityPreviewSquare($entity)
+    {   
+        $id = $entity->getId();
+        $thumbnail = $entity->getThumbnail();
+        $name = $entity->getName();
 
+        return "<a href='entity.php?id=$id'>
+                    <div class='previewContainer small'>
+                        <img src='$thumbnail' title= '$name'>
+                    </div>
+                </a>";
     }
 
     private function getRandomEntity()
     {
-        $query = $this->conn->prepare("SELECT * FROM entities ORDER BY RAND() LIMIT 1");
-        $query->execute();
-
-        $row = $query->fetch(PDO::FETCH_ASSOC);
-
-        return new Entity($this->conn, $row);
+        $entity = EntityProvider::getEntities($this->conn, null, 1);
+        return $entity[0];
     }
 }
 ?>
