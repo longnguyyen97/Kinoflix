@@ -1,10 +1,8 @@
 <?php
-require_once("includes/config.php");
+require_once("includes/header.php");
+$preview = new PreviewProvider($conn, $userLoggedIn);
+echo $preview->createPreviewVideo(null);
 
-/*if(!isset($_SESSION["userLoggedIn"])) {
-    header("Location: register.php");
-}*/
-if(isset($_SESSION["userLoggedIn"])) {
-    header("Location: register.php");
-}
+$containers = new CategoryContainers($conn, $userLoggedIn);
+echo $containers->showAllCategories();
 ?>

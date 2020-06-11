@@ -3,9 +3,7 @@ require_once("includes/config.php");
 require_once("includes/classes/FormSanitizer.php");
 require_once("includes/classes/Constants.php");
 require_once("includes/classes/Account.php");
-    
     $account = new Account($conn);
-
     if(isset($_POST["submitButton"]))
     {
         $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
@@ -15,7 +13,6 @@ require_once("includes/classes/Account.php");
         $email2 = FormSanitizer::sanitizeFormEmail($_POST["email2"]);
         $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
         $password2 = FormSanitizer::sanitizeFormPassword($_POST["password"]);
-
         // if the input is successful, register will try to insert user details
         $success = $account->register($firstName, $lastName, $userName, $email, $email2, $password, $password2);
         // if the insertion is success, register will hit the if block below

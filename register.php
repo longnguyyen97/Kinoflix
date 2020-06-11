@@ -3,14 +3,12 @@ require_once("includes/processForm/registerProcess.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Kinoflix</title>
     <link rel="stylesheet" type="text/css" href="assets/style/style.css">
 </head>
-
 <body>
     <div class="signInContainer">
         <div class="column">
@@ -31,21 +29,15 @@ require_once("includes/processForm/registerProcess.php");
                 <?php echo $account->getError(Constants::$emailInvalid);?>
                 <?php echo $account->getError(Constants::$emailTaken);?>
                 <input type="email" name="email" placeholder="Email" value= "<?php getInputValue("email"); ?>"required>
-
                 <input type="email" name="email2" placeholder="Confirm Email" value= "<?php getInputValue("email2"); ?>"required>
                 <?php echo $account->getError(Constants::$passwordsDontMatch);?>
                 <?php echo $account->getError(Constants::$passwordLength);?>
                 <input type="password" name="password" placeholder="Password" required>
-
                 <input type="password" name="password2" placeholder="Confirm Password" required>
-                
                 <input type="submit" name="submitButton" value="Submit">
             </form>
-
             <a href="login.php" class="signInMessage">Already have an account? Sign in here!</a>
-
         </div>
     </div>
 </body>
-
 </html>
