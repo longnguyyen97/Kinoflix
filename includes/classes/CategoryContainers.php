@@ -6,7 +6,7 @@ class CategoryContainers
     public function __construct($conn, $username)
     {
         $this->conn= $conn;
-        $this->username= $username;
+        $this->username = $username;
     }
 
     public function showAllCategories()
@@ -51,14 +51,15 @@ class CategoryContainers
         $previewProvider = new PreviewProvider($this->conn, $this->username);
         foreach($entities as $entity)
         {
-            $entitiesHtml .=  $previewProvider->createEntityPreviewSquare($entity);
+            $entitiesHtml .= $previewProvider->createEntityPreviewSquare($entity);
         }
 
         return "<div class='category'>
                     <a href='category.php?id=$categoryId'>
                         <h3>$title</h3>
                     </a>
-                    <div class ='entities'>
+
+                    <div class='entities'>
                         $entitiesHtml
                     </div>
                 </div>";
