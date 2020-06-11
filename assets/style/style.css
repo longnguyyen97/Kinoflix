@@ -29,7 +29,7 @@ a {
     background-color: #141414;
 }
 
-.signInContainer{
+.signInContainer {
     background-color: #efefee;
     height: 100vh;
     display: flex;
@@ -40,7 +40,7 @@ a {
 .column {
     background-color: #fff;
     min-height: 300px;
-    max-height: 100;
+    max-height: 100%;
     width: 450px;
     box-shadow: rgba(0,0,0, 0.1) 0 1px 2px;
     padding: 20px 35px;
@@ -48,21 +48,21 @@ a {
 }
 
 .column form {
-    display: flex;   
+    display: flex;
     flex-direction: column;
-    padding-top:24px;
+    padding-top: 24px;
 }
 
 .column form input[type="text"],
 .column form input[type="email"],
-.column form input[type="password"]{
+.column form input[type="password"] {
     font-size: 14px;
     margin: 10px 0;
     border: none;
     border-bottom: 1px solid #dedede;
 }
 
-.column form input[type="submit"]{
+.column form input[type="submit"] {
     background-color: #4285f4;
     color: #fff;
     height: 36px;
@@ -75,11 +75,11 @@ a {
     font-size: 16px;
 }
 
-.column .header{
+.column .header {
     padding: 20px 0;
 }
 
-.column .header h3 {
+.column h3 {
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
@@ -88,11 +88,11 @@ a {
     color: #000;
 }
 
-.column .header span{
+.column .header span {
     font-size: 14px;
 }
 
-.column .header img{
+.column .header img {
     width: 385px;
     display: block;
     margin: 0 auto;
@@ -105,17 +105,19 @@ a {
 }
 
 .errorMessage {
-    color: red;
+    color: #f00;
     font-size: 14px;
     font-weight: 400;
     text-align: center;
 }
 
 .previewImage,
-.previewVideo{
+.previewVideo {
     width: 100%;
+    ;
 }
-.previewContainer{
+
+.previewContainer {
     position: relative;
     display: flex;
 }
@@ -127,19 +129,21 @@ a {
     display: inline-flex;
 }
 
-.previewContainer .small img {
-    width: 100px;
-    height: 100px;
+.previewContainer.small img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-.previewOverlay{
+
+.previewOverlay {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.3);
     position: absolute;
 }
+
 .previewOverlay .mainDetails h3 {
-    color: fff;
+    color: #fff;
     font-size: 40px;
     margin: 15px 0;
 }
@@ -154,7 +158,7 @@ a {
 
 .mainDetails button {
     background-color: rgba(51,51,51,0.4);
-    color: fff;
+    color: #fff;
     border: none;
     min-width: 150px;
     padding: 0 38px;
@@ -184,6 +188,6 @@ button i {
 
 .entities {
     overflow-x: auto;
-    overflow-y:hidden;
+    overflow-y: hidden;
     white-space: nowrap;
 }
