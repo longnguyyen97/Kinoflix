@@ -5,6 +5,9 @@ require_once("includes/classes/CategoryContainers.php");
 require_once("includes/classes/EntityProvider.php");
 require_once("includes/classes/Entity.php");
 require_once("includes/classes/ErrorMessage.php");
+require_once("includes/classes/SeasonProvider.php");
+require_once("includes/classes/Season.php");
+require_once("includes/classes/Video.php");
 
 if(!isset($_SESSION["userLoggedIn"]))
 {
