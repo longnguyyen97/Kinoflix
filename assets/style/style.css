@@ -191,3 +191,13 @@ button i {
     overflow-y: hidden;
     white-space: nowrap;
 }
+
+.errorBanner {
+    color: #fff;
+    position: absolute;
+    top: 25%;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+}
