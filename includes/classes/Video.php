@@ -73,15 +73,18 @@ class Video
 
     public function isMovie()
     {
+        //check if this video is a movie or not
         return $this->sqlData["isMovie"] == 1;
     }
 
     public function getSeasonAndEpisode()
     {
+        
         if($this->isMovie())
         {
             return;
         }
+        //if not a movie, get the season and ep number
         $season = $this->getSeasonNumber();
         $episode = $this->getEpisodeNumber();
 
