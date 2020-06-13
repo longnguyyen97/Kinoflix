@@ -22,5 +22,7 @@ $video->incrementViews();
     </video>
 </div>
 <script>
-    initVideo();
+    /*runs the initVideo function in script.js, parses 2 variables which 
+    is videoId and user that logged in*/
+    initVideo("<?php echo $video->getId(); ?>", "<?php echo $userLoggedIn; ?>");
 </script>
