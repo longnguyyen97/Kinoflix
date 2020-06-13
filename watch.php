@@ -8,13 +8,22 @@ if(!isset($_GET["id"]))
 
 $video = new Video($conn, $_GET["id"]);
 $video->incrementViews();
+$upNextVideo = VideoProvider::getUpNext($conn, $video);
 ?>
 <div class="watchContainer">
 
     <div class="videoControls watchNav">
         <button onclick="goBack()"><i class="fas fa-angle-left"></i></button>
         <h1><?php echo $video->getTitle(); ?></h1>
+    </div>
 
+    <div class="videoControls upNext">
+        <button><i class="fas fa-redo"></i></button>
+
+        <div class="upNextContainer">
+            <h2>Up next:</h2>
+            <h3><?php echo $upNextVideo->getTitle(); ?></h3>
+        </div>
     </div>
 
     <video controls autoplay>
