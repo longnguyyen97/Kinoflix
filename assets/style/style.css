@@ -246,3 +246,24 @@ button i {
 .watchContainer video {
     width: 100%;
 }
+
+.videoControls {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.videoControls h1 {
+    color: #fff;
+}
+
+.videoControls button{
+    background-color: transparent;
+    font-size: 50px;
+    padding: 50px;
+    color: #fff;
+    border: none;
+}
