@@ -1,5 +1,6 @@
 <?php
 require_once("includes/header.php");
+
 if(!isset($_GET["id"])) {
     ErrorMessage::show("No ID passed into page");
 }
@@ -12,6 +13,6 @@ echo $preview->createPreviewVideo($entity);
 $seasonProvider = new SeasonProvider($conn, $userLoggedIn);
 echo $seasonProvider->create($entity);
 
-$categoryContainer = new CategoryContainers($conn, $userLoggedIn);
-echo $categoryContainer->showCategory($entity->getCategoryId(), "You might also like");
+$categoryContainers = new CategoryContainers($conn, $userLoggedIn);
+echo $categoryContainers->showCategory($entity->getCategoryId(), "You might also like");
 ?>

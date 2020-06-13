@@ -1,14 +1,14 @@
 html,
-* {
-    font-family: Montserrat;
-    src: url('E://WORK//Kinoflix//Kinoflix//assets//font//Montserrat')  format('truetype');
-    color: #333;
-    box-sizing: border-box;
-}
 body {
     height: 100%;
     padding: 0;
     margin: 0;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    box-sizing: border-box;
 }
 
 h3 {
@@ -93,9 +93,7 @@ a {
 }
 
 .column .header img {
-    width: 385px;
-    display: block;
-    margin: 0 auto;
+    width: 100px;
 }
 
 .signInMessage {
@@ -114,7 +112,6 @@ a {
 .previewImage,
 .previewVideo {
     width: 100%;
-    ;
 }
 
 .previewContainer {
@@ -186,38 +183,41 @@ button i {
     padding: 10px 0;
 }
 
-.entities
+.entities,
 .videos {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
 }
 
+.previewCategories {
+    padding: 0 50px;
+}
+
 .errorBanner {
     color: #fff;
     position: absolute;
     top: 25%;
-    width: 100px;
+    width: 100%;
     text-align: center;
     font-size: 18px;
-    font-weight: 400;
 }
 
 .season {
     display: flex;
     flex-direction: column;
-    padding: 10px, 50px;
+    padding: 10px 50px;
 }
 
 .episodeContainer {
     display: inline-flex;
-    justify-content:center;
+    justify-content: center;
     margin-right: 4px;
 }
 
 .episodeContainer .contents {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     width: 230px;
 }
 
@@ -228,10 +228,10 @@ button i {
 }
 
 .episodeContainer .videoInfo h4,
-.episodeContainer .videoInfo span{
+.episodeContainer .videoInfo span {
     color: #fff;
-    width: 100px;
-    white-space: normmal;
+    width: 100%;
+    white-space: normal;
 }
 
 .episodeContainer .videoInfo {
