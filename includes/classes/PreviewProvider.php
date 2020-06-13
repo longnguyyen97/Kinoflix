@@ -22,10 +22,12 @@ class PreviewProvider
         
         $videoId = VideoProvider::getEntityVideoForUser($this->conn, $id, $this->username);
         $video = new Video($this->conn, $videoId);
-
+        
+        //if video is in watching progress, switch button text to Contitnue
         $isInProgress = $video->isInProgress($this->username);
         $playButtonText = $isInProgress ? "Continue watching" : "Play";
 
+        //preview video show current season and episode of the TV show you're watching
         $seasonEpisode = $video->getSeasonAndEpisode();
         $subHeading = $video->isMovie() ? "" : "<h4>$seasonEpisode</h4>";
 
