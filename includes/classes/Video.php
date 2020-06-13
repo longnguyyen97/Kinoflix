@@ -90,5 +90,16 @@ class Video
 
         return "Season $season, Episode $episode";
     }
+
+    public function isInProgress($username)
+    {
+        $query = $this->conn->prepare("SELECT * FROM videoProgress 
+                                    WHERE videoId=:videoId AND username=:username");
+        $query->bindValue(":videoId", $this->getId());
+        $query->bindValue(":username",$username);
+        $query->execute();
+
+        return $query->rowCount() != 0;
+    }
 }
 ?>

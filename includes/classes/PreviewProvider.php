@@ -23,6 +23,9 @@ class PreviewProvider
         $videoId = VideoProvider::getEntityVideoForUser($this->conn, $id, $this->username);
         $video = new Video($this->conn, $videoId);
 
+        $isInProgress = $video->isInProgress($this->username);
+        $playButtonText = $isInProgress ? "Continue watching" : "Play";
+
         $seasonEpisode = $video->getSeasonAndEpisode();
         $subHeading = $video->isMovie() ? "" : "<h4>$seasonEpisode</h4>";
 
@@ -39,7 +42,7 @@ class PreviewProvider
                         <h3>$name</h3>
                         $subHeading
                         <div class='buttons'>
-                            <button onclick='watchVideo($videoId)'><i class='far fa-play-circle'></i> Play</button>
+                            <button onclick='watchVideo($videoId)'><i class='far fa-play-circle'></i> $playButtonText </button>
                             <button onclick='volumeToggle(this)'><i class='fas fa-volume-mute'></i></button>
                         </div>
                         
