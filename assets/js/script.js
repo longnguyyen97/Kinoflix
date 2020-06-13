@@ -19,3 +19,23 @@ function goBack()
 {
     window.history.back();
 }
+
+function startHideTimer()
+{
+    var timeout = null;
+    $(document).on("mousemove", function()
+    {
+        clearTimeout(timeout);
+        $(".watchNav").fadeIn();
+
+        timeout = setTimeout(function()
+        {
+            $(".watchNav").fadeOut();
+        }, 1200);
+    })
+}
+
+function initVideo()
+{
+    startHideTimer();
+}
