@@ -16,5 +16,8 @@
         <a href="profile.php">
             <i class="fas fa-user"></i>
         </a>
+        <a href="logout.php">
+            <i class="far fa-times-circle"></i>
+        </a>
     </div>
 </div>
