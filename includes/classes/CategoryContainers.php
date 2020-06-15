@@ -40,6 +40,22 @@ class CategoryContainers
         return $html . "</div>";
     }
 
+    public function showMovieCategories()
+    {
+        $query = $this->conn->prepare("SELECT * FROM categories");
+        $query->execute();
+
+        $html = "<div class='previewCategories'>
+                <h1>Movies</h1>";
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC))
+        {
+            $html .= $this->getCategoryHtml($row, null, false, true);
+        }
+
+        return $html . "</div>";
+    }
+
     public function showCategory($categoryId, $title = null)
     {
         $query = $this->conn->prepare("SELECT * FROM categories WHERE id=:id");
@@ -71,7 +87,7 @@ class CategoryContainers
         }
         else 
         {
-            //get movies entities
+            $entities = EntityProvider::getMoviesEntities($this->conn, $categoryId, 30); //get movies entities
         }
 
         if(sizeof($entities) == 0)
