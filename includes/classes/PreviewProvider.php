@@ -20,6 +20,17 @@ class PreviewProvider
         return $this->createPreviewVideo($entitiesArray[0]);
     }
 
+    public function createMoviePreviewVideo()
+    {
+        $entitiesArray = EntityProvider::getMoviesEntities($this->conn, null, 1);
+
+        if(sizeof($entitiesArray) == 0)
+        {
+            ErrorMessage::show("No movie to display");
+        }
+        return $this->createPreviewVideo($entitiesArray[0]);
+    }
+
     public function createPreviewVideo($entity)
     {
         if($entity == null)
