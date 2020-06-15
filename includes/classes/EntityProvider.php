@@ -28,7 +28,38 @@ class EntityProvider
         }
 
         return $result;
+    }
+
+    public static function getTVShowEntities($conn, $categoryId, $limit)
+    {
+        $sql = "SELECT DISTINCT(entities.id) FROM entities 
+        INNER JOIN videos ON entities.id = videos.entityID WHERE videos.isMovie = 0 ";
+
+        if($categoryId != null)
+        {
+            $sql .= "AND categoryId=:categoryId ";
+        }
+
+        $sql .= "ORDER BY RAND() LIMIT :limit";
+
+        $query = $conn->prepare($sql);
+
+        if($categoryId != null)
+        {
+            $query->bindValue(":categoryId", $categoryId);
+        }
+        $query->bindValue(":limit", $limit, PDO::PARAM_INT);
+        $query->execute();
+
+        $result = array();
+        while($row = $query->fetch(PDO::FETCH_ASSOC))
+        {
+            $result[] = new Entity($conn,$row["id"]);
+        }
+
+        return $result;
 
     }
+
 }
 ?>
