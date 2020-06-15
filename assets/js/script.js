@@ -1,3 +1,9 @@
+$(document).scroll(function()
+{
+    var isScrolled = $(this).scrollTop() > $(".topBar").height();
+    $(".topBar").toggleClass("scrolled", isScrolled);
+})
+
 function volumeToggle(button)
 {
     //if click when muted, set unmute and vise versa
