@@ -128,5 +128,53 @@ class Account
             return "<span class='errorMessage'>$error</span>";
         }
     }
+
+    private function validateNewEmail($em, $un)
+    {
+        if(!filter_var($em, FILTER_VALIDATE_EMAIL))// filter_var will perfom a filter on a value that parsed in 
+        {
+            array_push($this->errorArray, Constants::$emailInvalid);
+        }
+        $query = $this->conn->prepare("SELECT * FROM users WHERE email=:em AND username != :un");
+        $query->bindValue(":em", $em);
+        $query->bindValue(":un", $un);
+
+        $query->execute();
+
+        if($query->rowCount() !=0)
+        {
+            array_push($this->errorArray, Constants::$emailTaken);
+        }
+    }
+
+    public function updateDetails($fn, $ln, $em, $un)
+    {
+        $this->validateFirstName($fn);
+        $this->validateLastName($ln);
+        $this->validateNewEmail($em,$un);
+
+        if(empty($this->errorArray))
+        {
+            $query = $this->conn->prepare("UPDATE users SET firstName=:fn, lastName=:ln,
+            email=:em WHERE username=:un");
+
+            $query->bindValue(":fn", $fn);
+            $query->bindValue(":ln", $ln);
+            $query->bindValue(":em", $em);
+            $query->bindValue(":un", $un);
+
+            return $query->execute();
+        }
+        return false;
+    }
+
+    public function getFirstError()
+    {
+        if(!empty($this->errorArray))
+        {
+            return $this->errorArray[0];
+        }
+    }
+
 }
 ?>
